@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Prueba_PhoneReceiver_con_AudioManagerActivity!</string>
+    <string name="app_name">Prueba_PhoneReceiver_con_AudioManager</string>
+</resources>

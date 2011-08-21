@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+	<TextView 
+	android:id="@+id/tv_number"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ingresar el número que desea silenciar:"
+	android:textSize="12dp"	
+	/>
+	
+	<EditText 
+	android:id="@+id/et_number"
+	android:layout_width="200dp"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/tv_number"
+	android:singleLine="true"
+	/>
+	
+	<Button 
+	android:id="@+id/btn_search"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/tv_number"
+	android:layout_toRightOf="@id/et_number"
+	android:text="Buscar"
+	android:onClick="search"
+	/>
+	
+	<Button 
+	android:id="@+id/btn_save"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/et_number"
+	android:text="Grabar"
+	android:onClick="save"
+	/>
+	
+	<Button 
+	android:id="@+id/btn_remove"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/btn_save"	
+	android:text="Eliminar"
+	android:onClick="remove"
+	/>
+
+</RelativeLayout>
