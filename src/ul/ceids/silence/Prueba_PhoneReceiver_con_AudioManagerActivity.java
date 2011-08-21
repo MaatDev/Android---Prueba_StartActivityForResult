@@ -1,3 +1,4 @@
+
 package ul.ceids.silence;
 
 import android.app.Activity;
@@ -31,7 +32,7 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
 	public final static String DB_NAME = "MI_BLACK_LIST";
 	public final static String DB_DATA = "SILENCE_NUMBER";
 	
-	private final static String NO_NUMBER = "No tiene número";
+	private final static String NO_NUMBER = "No tiene nï¿½mero";
 	
 	public final static int REQUEST=0;
 	
@@ -61,10 +62,10 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
     	
     	this.et.commit();
     	
-    	Toast.makeText(this.getApplicationContext(), "Número silenciado: "+number,
+    	Toast.makeText(this.getApplicationContext(), "Nï¿½mero silenciado: "+number,
     		Toast.LENGTH_SHORT).show();
     	
-    	//Registrar el BroadcastReceiver( si está registrado en el Manifest, se dispara aún que esté cerrado la aplicación)
+    	//Registrar el BroadcastReceiver( si estï¿½ registrado en el Manifest, se dispara aï¿½n que estï¿½ cerrado la aplicaciï¿½n)
   	
     	this.registerReceiver(new MyPhoneReceiver(), 
     		new IntentFilter(MyPhoneReceiver.ACTION));
@@ -73,7 +74,7 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
     
     public void remove(View v){
     	
-    	String number = this.sp.getString(DB_NAME, "No existe el número");
+    	String number = this.sp.getString(DB_NAME, "No existe el nï¿½mero");
     	
     	//Eliminar la llave y su cotenido de la base de datos
     	
@@ -81,10 +82,10 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
     	
     	this.et.commit();
     	
-    	Toast.makeText(this.getApplicationContext(), "Número borrado: "+number,
+    	Toast.makeText(this.getApplicationContext(), "Nï¿½mero borrado: "+number,
     		Toast.LENGTH_SHORT);
     	
-    	//Si el broadcastreceiver no existe, lanza una excepción
+    	//Si el broadcastreceiver no existe, lanza una excepciï¿½n
     	
     	try{
     		this.unregisterReceiver(new MyPhoneReceiver());
@@ -105,7 +106,7 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
     	// TODO Auto-generated method stub
 //    	super.onActivityResult(requestCode, resultCode, data);
     	
-    	//Si el usuairo no ha seleccionado ningún usuario, el resultCode será 0
+    	//Si el usuairo no ha seleccionado ningï¿½n usuario, el resultCode serï¿½ 0
     	
     	if(resultCode == 0){
     		
@@ -146,14 +147,16 @@ public class Prueba_PhoneReceiver_con_AudioManagerActivity extends Activity {
 
     	}    	
     	
-    	//Verificar si el contacto tiene número de teléfono
+    	//Verificar si el contacto tiene nï¿½mero de telï¿½fono
     	   	
     	if(hasPhoneNumber != 0){
     		
 
     		cursor = getContentResolver().query(Phone.CONTENT_URI, null, Phone.LOOKUP_KEY + " = ?", new String[] { lookupKey }, null);
 
-
+		
+		//Puede ser que el contacto tenga varios telÃ©fonos. Devuelve el Ãºltimo nÃºmero registrado
+		
     		while(cursor.moveToNext()){
     			
     			number = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
